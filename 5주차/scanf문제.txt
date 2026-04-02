@@ -1,0 +1,28 @@
+대문자를 입력받고 소문자로 출력하고, 소문자를 입력받고 대문자로 출력하는 프로그램을 작성하시오.
+단 0을 입력하면 종료하시오
+
+[입출력형식]
+문자 입력 : A
+A의 소문자는 a입니다.
+문자 입력 : B
+B의 소문자는 b입니다.
+문자 입력 : c
+c의 대문자는 C입니다.
+문자 입력 : 0
+
+
+https://plustag.tistory.com/1
+
+
+Shell
+$ehco $0
+$ps
+$cat /etc/shells
+
+https://jhnyang.tistory.com/57
+https://gaeko-security-hack.tistory.com/118
+
+
+Shell Programming
+https://blog.naver.com/sunguru/220940901119
+
