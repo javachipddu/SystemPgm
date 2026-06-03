@@ -53,3 +53,5 @@
 + rm -r -> 디렉터리 전체 삭제 (위험한 방식)
 
 파일 권한으로는 r (읽기), w (쓰기), x (실행)가 있다.
+
+오류 종류로는 문법 오류인 Syntax Error, 실행 오류인 Runtime Error, 의미 오류인 Semantic Error가 있다.
