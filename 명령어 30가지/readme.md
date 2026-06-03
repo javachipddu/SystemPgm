@@ -218,7 +218,3 @@ tar -czf archive.tar.gz files/  # 디렉토리를 gzip 압축하여 아카이브
 tar -xzf archive.tar.gz         # gzip 아카이브 해제
 tar -tf archive.tar             # 아카이브 내용 목록 보기
 ```
-
----
-
-- 
