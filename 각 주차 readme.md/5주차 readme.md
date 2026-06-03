@@ -60,7 +60,6 @@ fputs(buffer, fp);
 #include <ctype.h>
 int main() {
     char ch;
-
     while (1) {
         printf("문자 입력 : ");
         scanf(" %c", &ch);
