@@ -53,29 +53,3 @@ EOF 만나면 종료한다.
 fgets(buffer, size, fp);
 
 fputs(buffer, fp);
-
-대소문자 변환 프로그램 코드
-
-
-#include <stdio.h>
-#include <ctype.h>
-
-int main() {
-
-    char ch;
-    while (1) {
-        printf("문자 입력 : ");
-        scanf(" %c", &ch);
-
-        if (ch == '0') break;
-
-        if (isupper(ch)) {
-            printf("%c의 소문자는 %c이다.\n", ch, tolower(ch));
-        } else if (islower(ch)) {
-            printf("%c의 대문자는 %c이다.\n", ch, toupper(ch));
-        } else {
-            printf("영문자가 아니다.\n");
-        }
-    }
-    return 0;
-}
