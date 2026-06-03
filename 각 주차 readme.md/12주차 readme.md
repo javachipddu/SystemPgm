@@ -6,3 +6,5 @@ grep 명령어는 파일을 대상으로 지정된 패턴의 문자열을 검색
 
 
 <img width="746" height="422" alt="595801609-444d809e-01d5-4292-92a8-de09d1160aeb" src="https://github.com/user-attachments/assets/417c331c-db3a-436a-b233-082de70b4e3b" />
+
+<img width="763" height="576" alt="595808397-713190d1-9efc-415f-90ef-0121a9104cc0" src="https://github.com/user-attachments/assets/5076f59c-7656-4fe5-a1ca-a1867b0ccff9" />
