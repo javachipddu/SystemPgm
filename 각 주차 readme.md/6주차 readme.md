@@ -16,3 +16,5 @@ CPU가 커널 모드로 전환 ->
 결과 반환 → 사용자 모드 복귀
 
 파일 열기(open())
+
+int open(const char *path, int oflag, [mode_t mode]);
