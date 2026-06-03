@@ -26,3 +26,17 @@ FILE 구조체는 하나의 파일 스트림에 대한 정보를 담고 있다.
 표준 입력(키보드)의 stdin, 
 표준 출력(화면)의 stdout, 
 표준 오류 출력의 stderr 가 있다.
+
+파일 열기: fopen()
++ FILE *fopen(const char *filename, const char *mode);
+
+파일 닫기: fclose()
++ int fclose(FILE *fp);
+
+파일을 사용한 후 반드시 닫을 것!
+
+fgetc()
++ int fgetc(FILE *fp);
+
+fputc()
++ int fputc(int c, FILE *fp);
