@@ -60,6 +60,13 @@ cat file.txt             # 파일 내용 출력
 cat file1 file2 > merged # 여러 파일을 합쳐서 새 파일 생성
 ```
 
+## `chmod` : 파일 또는 디렉토리의 접근 권한(읽기, 쓰기, 실행)을 변경한다.
+```bash
+chmod 755 file.txt       # 숫자 방식으로 권한 설정
+chmod +x script.sh       # 실행 권한 추가
+chmod -w file.txt        # 쓰기 권한 제거
+```
+
 ## `head` : 파일의 시작 부분을 출력한다.
 ```bash
 head file.txt            # 첫 10줄 출력
@@ -70,13 +77,6 @@ head -n 20 file.txt      # 첫 20줄 출력
 ```bash
 tail file.txt            # 마지막 10줄 출력
 tail -f logfile.log      # 실시간으로 파일 끝 부분 모니터링
-```
-
-## `chmod` : 파일 또는 디렉토리의 접근 권한(읽기, 쓰기, 실행)을 변경한다.
-```bash
-chmod 755 file.txt       # 숫자 방식으로 권한 설정
-chmod +x script.sh       # 실행 권한 추가
-chmod -w file.txt        # 쓰기 권한 제거
 ```
 
 ---
