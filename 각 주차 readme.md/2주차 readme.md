@@ -1,6 +1,6 @@
 # Linux
 
-Linux는 다중 사용자(Multi-user), 다중 작업(Multi-tasking) 운영체제이다. \n
+Linux는 다중 사용자(Multi-user), 다중 작업(Multi-tasking) 운영체제이다.
 모든 것은 파일로 관리된다.
 시스템은 계층적인 디렉터리 구조를 가진다.
 
