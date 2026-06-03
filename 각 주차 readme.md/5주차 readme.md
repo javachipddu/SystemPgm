@@ -56,9 +56,12 @@ fputs(buffer, fp);
 
 대소문자 변환 프로그램 코드
 
+
 #include <stdio.h>
 #include <ctype.h>
+
 int main() {
+
     char ch;
     while (1) {
         printf("문자 입력 : ");
