@@ -440,118 +440,7 @@ int main() {
 
 ![Image](https://github.com/user-attachments/assets/d32af6a2-3b5c-4f39-b4ab-5aeb58d905dc)
 
-# **13.who**: 현재 실행 중인 프로세스 목록을 출력하는 명령어
-
-```c
-#include <stdio.h>
-#include <utmp.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <time.h>
-
-int main() {
-    struct utmp entry;
-
-    // utmp 파일 열기
-    int fd = open(_PATH_UTMP, O_RDONLY);
-    if (fd == -1) {
-        perror("utmp 열기 실패");
-        return 1;
-    }
-    printf("USER     TTY      DATE       TIME\n");
-
-    while (read(fd, &entry, sizeof(entry)) == sizeof(entry)) {
-        if (entry.ut_type == USER_PROCESS) {
-            char timebuf[32];
-            struct tm *lt = localtime((time_t *) &entry.ut_tv.tv_sec);
-            strftime(timebuf, sizeof(timebuf), "%Y-%m-%d %H:%M", lt);
-            printf("%-8s %-8s %s\n", entry.ut_user, entry.ut_line, timebuf);
-        }
-    }
-    close(fd);
-    return 0;
-}
-```
-## 설명
-- ``utmp.h``의 ``_PATH_UTMP`` 경로(`/var/run/utmp`)에서 로그인 세션 정보를 읽는다.
-- ``utmp`` 구조체 배열을 순회하면서 ``ut_type == USER_PROCESS``인 항목만 출력한다.
-- 사용자 이름(`ut_user`), 터미널 이름(`ut_line`), 로그인 시간(`ut_tv`)을 출력한다.
-- ``strftime()``과 ``localtime()``을 사용하여 시간을 사람이 읽기 좋은 형식으로 변환한다.
-
-## 컴파일 및 실행화면
-
-![Image](https://github.com/user-attachments/assets/4740de97-8322-497e-a5ff-b79338e11e31)
-
-# **14.who -u**: 현재 실행 중인 프로세스 목록을 구체적으로 출력하는 명령어
-
-```c
-#include <stdio.h>
-#include <utmp.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <time.h>
-#include <sys/stat.h>
-
-#define IDLE_THRESHOLD 60  // 60초 단위로 idle 시간 계산
-
-int main() {
-    struct utmp entry;
-    int fd = open(_PATH_UTMP, O_RDONLY);
-    if (fd == -1) {
-        perror("utmp 열기 실패");
-        return 1;
-    }
-    printf("USER     TTY      DATE       TIME     IDLE     PID\n");
-
-    while (read(fd, &entry, sizeof(entry)) == sizeof(entry)) {
-        if (entry.ut_type == USER_PROCESS) {
-            char timebuf[32];
-            struct tm *lt = localtime((time_t *) &entry.ut_tv.tv_sec);
-            strftime(timebuf, sizeof(timebuf), "%Y-%m-%d %H:%M", lt);
-
-            // idle 시간 계산
-            char tty_path[64];
-            snprintf(tty_path, sizeof(tty_path), "/dev/%s", entry.ut_line);
-            struct stat st;
-            int idle_minutes = -1;
-
-            if (stat(tty_path, &st) == 0) {
-                time_t now = time(NULL);
-                idle_minutes = (now - st.st_atime) / 60;
-            }
-
-            // IDLE 시간 형식
-            char idle_buf[16];
-            if (idle_minutes < 0) {
-                snprintf(idle_buf, sizeof(idle_buf), "?");
-            } else if (idle_minutes == 0) {
-                snprintf(idle_buf, sizeof(idle_buf), ".");
-            } else {
-                snprintf(idle_buf, sizeof(idle_buf), "%02d:%02d", idle_minutes / 60, idle_minutes % 60);
-            }
-            printf("%-8s %-8s %s %-8s %d\n",
-                   entry.ut_user,
-                   entry.ut_line,
-                   timebuf,
-                   idle_buf,
-                   entry.ut_pid);
-        }
-    }
-    close(fd);
-    return 0;
-}
-```
-## 설명
-- ``utmp.h``의 ``_PATH_UTMP``를 열고, ``ut_type == USER_PROCESS``인 사용자 항목만 필터링한다.
-- ``ut_pid`` 필드를 통해 해당 사용자의 프로세스 ID를 출력한다.
-- ``ut_line``을 기반으로 ``/dev/ttyX`` 경로를 생성하고, ``stat()``의 ``st_atime``을 통해 idle 시간(입력 없던 시간)을 계산한다.
-- idle 시간은 분 단위로 계산하여 출력하며, 0분이면 ``.``을, 음수거나 오류면 ``?``로 출력한다.
-
-## 컴파일 및 실행화면
-
-![Image](https://github.com/user-attachments/assets/092ff9a1-9b1d-4498-aa04-2ef1e73e0b86)
-
-# **15.whoami**: 현재 사용자 출력
+# **13.whoami**: 현재 사용자 출력
 ```c
 #include <stdio.h>
 #include <unistd.h>
@@ -591,7 +480,7 @@ struct passwd {
 
 ![Image](https://github.com/user-attachments/assets/e6e82748-e627-457c-a39e-b3f24ed39bf0)
 
-# **16.file**: 파일의 **종류(type)**를 출력하는 명령어
+# **14.file**: 파일의 **종류(type)**를 출력하는 명령어
 ```c
 #include <stdio.h>
 #include <sys/stat.h>
@@ -638,7 +527,7 @@ int main(int argc, char *argv[]) {
 
 ![Image](https://github.com/user-attachments/assets/5972b3a6-46f1-42d5-85e0-405cb818d92e)
 
-# **17.head**: 파일의 처음 몇 줄을 출력하는 명령어 ``[ 기본값:10줄 ]``
+# **15.head**: 파일의 처음 몇 줄을 출력하는 명령어 ``[ 기본값:10줄 ]``
 
 ```c
 #include <stdio.h>
@@ -678,45 +567,7 @@ int main(int argc, char *argv[]) {
 
 ![Image](https://github.com/user-attachments/assets/6b00072c-0de1-46ca-b7de-65a9f119d6dd)
 
-# **18.head -n**: 파일의 처음 몇 줄을 출력하는 명령어 
-
-```c
-#include <stdio.h>
-
-#define MAX_LINE 1024
-#define DEFAULT_LINE_COUNT 10
-
-int main(int argc, char *argv[]) {
-    if (argc != 2) {
-        fprintf(stderr, "사용법: %s [파일 이름]\n", argv[0]);
-        return 1;
-    }
-    FILE *fp = fopen(argv[1], "r");
-    if (fp == NULL) {
-        perror("파일 열기 실패");
-        return 1;
-    }
-    char line[MAX_LINE];
-    int count = 0;
-
-    while (fgets(line, sizeof(line), fp) != NULL && count < DEFAULT_LINE_COUNT) {
-        printf("%s", line);
-        count++;
-    }
-    fclose(fp);
-    return 0;
-}
-```
-## 설명
-- 프로그램 실행 시 ``줄 수``와 ``파일 이름``을 인자로 전달받아, ``execvp()`` 함수를 통해 시스템의 ``head -n [줄 수] [파일 이름]`` 명령어를 실행한다.
-- ``char *args[]`` 배열에 명령어 인자들을 구성하고, ``execvp("head", args)``를 호출하여 현재 프로세스를 ``head``로 대체한다.
-- 외부 명령어 ``head``가 직접 실행되어 지정된 줄 수만큼 파일 내용을 출력하게 된다.
-
-## 컴파일 및 실행화면
-
-![Image](https://github.com/user-attachments/assets/b17fe484-f1c4-44de-af6d-5f629ad1d558)
-
-# **19.tail**: 파일의 마지막 몇 줄을 출력하는 명령어 ``[ 기본값: 10줄 ]``
+# **16.tail**: 파일의 마지막 몇 줄을 출력하는 명령어 ``[ 기본값: 10줄 ]``
 
 ```c
 #include <stdio.h>
@@ -773,62 +624,7 @@ int main(int argc, char *argv[]) {
 
 ![Image](https://github.com/user-attachments/assets/22668243-a17e-45ed-ad25-ea98bfa352d7)
 
-# **20.tail -n**: 파일의 마지막 n개 줄을 출력하는 명령어 
-
-```c
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-#define MAX_LINES 1024
-#define MAX_LINE_LENGTH 1024
-#define DEFAULT_TAIL_LINES 10
-
-int main(int argc, char *argv[]) {
-    if (argc != 2) {
-        fprintf(stderr, "사용법: %s [파일 이름]\n", argv[0]);
-        return 1;
-    }
-    FILE *fp = fopen(argv[1], "r");
-    if (!fp) {
-        perror("파일 열기 실패");
-        return 1;
-    }
-    char *lines[MAX_LINES];
-    int count = 0;
-
-    // 한 줄씩 읽고 배열에 저장
-    while (!feof(fp)) {
-        char buffer[MAX_LINE_LENGTH];
-        if (fgets(buffer, sizeof(buffer), fp)) {
-            lines[count % MAX_LINES] = strdup(buffer);
-            count++;
-        }
-    }
-    fclose(fp);
-
-    // 출력 시작 인덱스 계산
-    int start = count > DEFAULT_TAIL_LINES ? count - DEFAULT_TAIL_LINES : 0;
-
-    // 출력
-    for (int i = start; i < count; i++) {
-        printf("%s", lines[i % MAX_LINES]);
-        free(lines[i % MAX_LINES]); // 메모리 해제
-    }
-    return 0;
-}
-```
-## 설명
-- ``argv[1]``에서 출력할 줄 수를 정수로 파싱하고, ``argv[2]``의 파일을 ``fopen()``으로 읽기 전용으로 연다.
-- ``fgets()``로 줄 단위로 읽고, ``strdup()``으로 복사하여 순환 배열에 저장한다.
-- 총 줄 개수에서 출력할 줄 수를 뺀 인덱스부터 출력하고, ``free()``로 메모리를 해제한다.
-- ``tail -n [줄 수] [파일명]`` 명령어와 같은 방식으로 동작한다.
-
-## 컴파일 및 실행화면
-
-![Image](https://github.com/user-attachments/assets/10aba588-5e9a-4e2d-b39b-b9b72e15f820)
-
-# **21.mkdir**: 디렉토리 생성 명령어
+# **17.mkdir**: 디렉토리 생성 명령어
 
 ```c
 #include <stdio.h>
@@ -859,7 +655,7 @@ int main(int argc, char *argv[]) {
 
 ![Image](https://github.com/user-attachments/assets/ba940adc-f71a-4d68-af67-316888af008b)
 
-# **22.rmdir**: 디렉토리 삭제 명령어
+# **18.rmdir**: 디렉토리 삭제 명령어
 
 ```c
 #include <stdio.h>
@@ -889,7 +685,7 @@ int main(int argc, char *argv[]) {
 
 ![Image](https://github.com/user-attachments/assets/51d0c882-8c09-49a1-8179-39fb2d338f3c)
 
-# **23.touch**: 파일이 없으면 생성, 있으면 마지막 수정 시간 갱신 명령어
+# **19.touch**: 파일이 없으면 생성, 있으면 마지막 수정 시간 갱신 명령어
 
 ```c
 #include <stdio.h>
@@ -931,7 +727,7 @@ int main(int argc, char *argv[]) {
 
 ![Image](https://github.com/user-attachments/assets/f5fe9a37-3288-4518-aa50-6a7cd76493a4)
 
-# **24.cat**: 파일 내용을 출력하는 명령어
+# **20.cat**: 파일 내용을 출력하는 명령어
 
 ```c
 #include <stdio.h>
@@ -964,7 +760,7 @@ int main(int argc, char *argv[]) {
 
 ![Image](https://github.com/user-attachments/assets/b0c6d522-ff02-4bbf-83b1-16b8d69db1c2)
 
-# **25.cat -n**: 텍스트 파일의 각 줄 앞에 줄 번호를 붙여 출력하는 명령어
+# **21.cat -n**: 텍스트 파일의 각 줄 앞에 줄 번호를 붙여 출력하는 명령어
 
 ```c
 #include <stdio.h>
@@ -1010,7 +806,7 @@ int main(int argc, char *argv[]) {
 
 ![Image](https://github.com/user-attachments/assets/a9b68d70-299b-40b3-97ab-56ba843da718)
 
-# **26.clear**: 화면 지우기
+# **22.clear**: 화면 지우기
 ```c
 #include <stdio.h>
 
@@ -1035,7 +831,7 @@ int main() {
 
 ![Image](https://github.com/user-attachments/assets/e3f4da39-3a70-42a8-aeb7-aa658925ac0b)
 
-# **27.date**: 현재 시간 출력
+# **23.date**: 현재 시간 출력
 ```c
 #include <stdio.h>
 #include <time.h>
@@ -1071,7 +867,7 @@ int main() {
 
 ![Image](https://github.com/user-attachments/assets/a8fbd1b7-e720-493a-85ef-31f70db7fc8a)
 
-# **28.dirname**: 경로에서 디렉토리 이름만 추출하는 명령어
+# **24.dirname**: 경로에서 디렉토리 이름만 추출하는 명령어
 
 ```c
 #include <stdio.h>
@@ -1099,7 +895,7 @@ int main(int argc, char *argv[]) {
 
 ![Image](https://github.com/user-attachments/assets/828d918e-2cb0-43a3-80dd-ea761ad958b0)
 
-# **29.sleep**: 주어진 초(seconds)만큼 프로그램 실행을 일시 중지하는 명령어
+# **25.sleep**: 주어진 초(seconds)만큼 프로그램 실행을 일시 중지하는 명령어
 
 ```c
 #include <stdio.h>
@@ -1129,7 +925,7 @@ int main(int argc, char *argv[]) {
 
 ![Image](https://github.com/user-attachments/assets/11664e4f-fafd-47e7-ba48-30b2e22ad1e8)
 
-# **30.exit**: 프로그램 종료 명령어
+# **26.exit**: 프로그램 종료 명령어
 ```c
 #include <stdlib.h>
 
