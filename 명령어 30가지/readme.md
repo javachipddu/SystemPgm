@@ -13,13 +13,12 @@ int main() {
         perror("getcwd 오류");  // 오류 메시지 출력
         return 1;
     }
-
     return 0;
 }
 ```
-## 구현 설명
+## 설명
 - ``getcwd(char *buf, size_t size)`` 함수를 통해서 현재 위치를 저장할 수 있다.
-- **PATH_MAX**는 ``limits.h``에 정의된 상수이다. **※ 크기는 4096**
+- **PATH_MAX**는 ``limits.h``에 정의된 상수이다. **※ 크기: 4096**
 
 ## 컴파일 및 실행화면
 ![Image](https://github.com/user-attachments/assets/fa61f2c7-2b38-476d-b91d-fc9fd3e5c13a)
@@ -43,17 +42,15 @@ int main() {
         // 현재 디렉토리에서 항목 하나씩 출력
         if (entry->d_name[0] != '.') {
            printf("%s\n", entry->d_name);
-    }   }
-
+        }
+    }
     closedir(dir);
     return 0;
 }
 ```
 ## 설명
 - **opendir()**: ``dirent.h`` 라이브러리를 통해서 DIR 타입의 포인터 변수를 만들고 ``opendir(".")`` 을 통해서 현재 디렉토리의 정보를 dir 변수에 넣는다.
-
-- **if(entry->d_name[0] != '.')**: 숨김 파일은 출력하지 못하게 하기 위해 구현
-
+- **if(entry->d_name[0] != '.')**: 숨김 파일은 출력하지 못하게 하기 위해 구현한다.
 - **entry = readdir(dir) != NULL**: 현재 디렉토리의 항목을 하나씩 읽고 **NULL**이 아니면 출력, **NULL**이면 while문을 나가고 ``closedir()``을 통해서 디렉토리를 닫는다.
 
 ## 컴파일 및 실행화면
@@ -79,7 +76,6 @@ int main() {
         // 현재 디렉토리에서 항목 하나씩 출력
         printf("%s\n", entry->d_name);
     }
-
     closedir(dir);
     return 0;
 }
@@ -151,19 +147,16 @@ int main() {
         char timebuf[64];
         strftime(timebuf, sizeof(timebuf), "%b %d %H:%M", localtime(&st.st_mtime));
         printf(" %s", timebuf);
-
         printf(" %s\n", entry->d_name);
     }
-
     closedir(dir);
     return 0;
 }
 ```
 ## 설명
-- ``dirent.h`` 라이브러리로 현재 디렉토리 열기, **dirent** 구조체 선언, **readdir()** 함수를 통해서 파일/디렉토리 항목 하나씩 읽기 등 구현
-- ``sys/stat.h`` 라이브러리에 정의된 파일 권한 관련 상수들로 파일의 권한을 구분 및 stat 구조체 사용
-
-- ``stat``, ``dirent`` **구조체**들로 필요한 정보들 출력
+- ``dirent.h`` 라이브러리로 현재 디렉토리 열기, **dirent** 구조체 선언, **readdir()** 함수를 통해서 파일/디렉토리 항목 하나씩 읽기 등을 구현했다.
+- ``sys/stat.h`` 라이브러리에 정의된 파일 권한 관련 상수들로 파일의 권한을 구분 및 stat 구조체를 사용했다.
+- ``stat``, ``dirent`` **구조체**들로 필요한 정보들 출력한다.
 
 ## 컴파일 및 실행화면
 
@@ -224,19 +217,16 @@ int main() {
         char timebuf[64];
         strftime(timebuf, sizeof(timebuf), "%b %d %H:%M", localtime(&st.st_mtime));
         printf(" %s", timebuf);
-
         printf(" %s\n", entry->d_name);
     }
-
     closedir(dir);
     return 0;
 }
 ```
 ## 설명
-- ``dirent.h`` 라이브러리로 현재 디렉토리 열기, **dirent** 구조체 선언, **readdir()** 함수를 통해서 파일/디렉토리 항목 하나씩 읽기 등 구현
-- ``sys/stat.h`` 라이브러리에 정의된 파일 권한 관련 상수들로 파일의 권한을 구분 및 stat 구조체 사용
-
-- ``stat``, ``dirent`` **구조체**들로 필요한 정보들 출력
+- ``dirent.h`` 라이브러리로 현재 디렉토리 열기, **dirent** 구조체 선언, **readdir()** 함수를 통해서 파일/디렉토리 항목 하나씩 읽기 등을 구현한다.
+- ``sys/stat.h`` 라이브러리에 정의된 파일 권한 관련 상수들로 파일의 권한을 구분 및 stat 구조체를 사용한다.
+- ``stat``, ``dirent`` **구조체**들로 필요한 정보들을 출력한다.
 
 ## 컴파일 및 실행화면
 
@@ -260,18 +250,16 @@ int main() {
         perror("사용자 또는 그룹 정보를 가져올 수 없습니다");
         return 1;
     }
-
     printf("uid=%d(%s) gid=%d(%s)\n", uid, pw->pw_name, gid, gr->gr_name);
-
     return 0;
 }
 ```
 ## 설명
-- **getuid()**: **사용자 UID(User ID)** 반환
-- **getgid()**: **그룹 ID** 반환
-- **getpwuid()**: ``UID``를 통해서 **구조체** 반환
-- **getgrgid()**: ``GID``를 통해서 **구조체** 반환
-- **구조체**: ``UID``, ``GID`` 구조체를 통해서 각 name을 출력
+- **getuid()**: **사용자 UID(User ID)** 를 반환한다.
+- **getgid()**: **그룹 ID** 를 반환한다.
+- **getpwuid()**: ``UID``를 통해서 **구조체** 를 반환한다.
+- **getgrgid()**: ``GID``를 통해서 **구조체** 를 반환한다.
+- **구조체**: ``UID``, ``GID`` 구조체를 통해서 각 name을 출력한다.
 
 ## 컴파일 및 실행화면
 
@@ -289,7 +277,6 @@ int main() {
 }
 ```
 ## 설명
-
 - ``unistd.h``에 정의된 ``getuid()`` 함수를 사용하여 현재 사용자 UID(User ID)를 가져온다.
 - ``printf()``로 UID를 출력한다.
 - ``id -u`` 명령어와 같은 방식으로 현재 사용자의 UID만 출력한다.
@@ -310,7 +297,6 @@ int main() {
 }
 ```
 ## 설명
-
 - ``unistd.h``에 정의된 ``getgid()`` 함수를 사용하여 현재 사용자의 GID(Group ID)를 가져온다.
 - ``printf()``로 GID를 출력한다.
 - ``id -g`` 명령어와 같은 방식으로 현재 사용자의 기본 그룹 ID만 출력한다.
@@ -334,13 +320,12 @@ int main() {
         perror("gethostname 오류");
         return 1;
     }
-
     return 0;
 }
 ```
 ## 설명
-- **HOST_NAME_MAX**: ``limits.h`` 헤더에 정의된 상수이며 1을 더하는 이유는 문자열의 끝에 있는 ``널 문자(\\0)`` 때문이다. **※크기는 리눅스에서는 64**
-- **gethostname(char *name, size_t len)**: hostname을 반환하는 함수
+- **HOST_NAME_MAX**: ``limits.h`` 헤더에 정의된 상수이며 1을 더하는 이유는 문자열의 끝에 있는 ``널 문자(\\0)`` 때문이다. **※크기는 리눅스에서 64이다.**
+- **gethostname(char *name, size_t len)**: hostname을 반환하는 함수이다.
 
 ## 컴파일 및 실행화면
 
@@ -383,14 +368,12 @@ int main() {
             }
         }
     }
-
     printf("\n");
     freeifaddrs(ifaddr);
     return 0;
 }
 ```
 ## 설명
-
 - `getifaddrs()` 함수로 현재 네트워크 인터페이스들의 리스트를 얻는다.
 - 각 인터페이스에 대해 IPv4 주소(AF_INET)인 경우 `inet_ntop()`으로 문자열 IP 주소로 변환한다.
 - 루프백 주소(127.0.0.1)는 제외하고 출력한다.
@@ -414,12 +397,11 @@ int main() {
         perror("uname 오류");
         return 1;
     }
-
     return 0;
 }
 ```
 ## 설명
-- ``sys/utsname.h``에 정의된 **uname()** 함수로 커널 이름을 들고온다.
+- ``sys/utsname.h``에 정의된 **uname()** 함수로 커널 이름을 들고 온다.
 
 ## 컴파일 및 실행화면
 
@@ -446,12 +428,10 @@ int main() {
            buffer.version,   // 커널 버전
            buffer.machine    // 하드웨어 정보
     );
-
     return 0;
 }
 ```
 ## 설명
-
 - ``sys/utsname.h``의 ``uname()`` 함수는 시스템 정보를 담은 ``utsname`` 구조체를 반환한다.
 - 구조체의 각 필드를 활용하여 운영 체제, 노드 이름, 커널 버전, 하드웨어 정보 등을 출력한다.
 - ``uname -a`` 명령어와 동일하게 전체 시스템 정보를 출력한다.
@@ -478,7 +458,6 @@ int main() {
         perror("utmp 열기 실패");
         return 1;
     }
-
     printf("USER     TTY      DATE       TIME\n");
 
     while (read(fd, &entry, sizeof(entry)) == sizeof(entry)) {
@@ -486,17 +465,14 @@ int main() {
             char timebuf[32];
             struct tm *lt = localtime((time_t *) &entry.ut_tv.tv_sec);
             strftime(timebuf, sizeof(timebuf), "%Y-%m-%d %H:%M", lt);
-
             printf("%-8s %-8s %s\n", entry.ut_user, entry.ut_line, timebuf);
         }
     }
-
     close(fd);
     return 0;
 }
 ```
 ## 설명
-
 - ``utmp.h``의 ``_PATH_UTMP`` 경로(`/var/run/utmp`)에서 로그인 세션 정보를 읽는다.
 - ``utmp`` 구조체 배열을 순회하면서 ``ut_type == USER_PROCESS``인 항목만 출력한다.
 - 사용자 이름(`ut_user`), 터미널 이름(`ut_line`), 로그인 시간(`ut_tv`)을 출력한다.
@@ -525,7 +501,6 @@ int main() {
         perror("utmp 열기 실패");
         return 1;
     }
-
     printf("USER     TTY      DATE       TIME     IDLE     PID\n");
 
     while (read(fd, &entry, sizeof(entry)) == sizeof(entry)) {
@@ -554,7 +529,6 @@ int main() {
             } else {
                 snprintf(idle_buf, sizeof(idle_buf), "%02d:%02d", idle_minutes / 60, idle_minutes % 60);
             }
-
             printf("%-8s %-8s %s %-8s %d\n",
                    entry.ut_user,
                    entry.ut_line,
@@ -563,13 +537,11 @@ int main() {
                    entry.ut_pid);
         }
     }
-
     close(fd);
     return 0;
 }
 ```
 ## 설명
-
 - ``utmp.h``의 ``_PATH_UTMP``를 열고, ``ut_type == USER_PROCESS``인 사용자 항목만 필터링한다.
 - ``ut_pid`` 필드를 통해 해당 사용자의 프로세스 ID를 출력한다.
 - ``ut_line``을 기반으로 ``/dev/ttyX`` 경로를 생성하고, ``stat()``의 ``st_atime``을 통해 idle 시간(입력 없던 시간)을 계산한다.
@@ -597,10 +569,9 @@ int main() {
 }
 ```
 ## 설명
-- **getuid()**: 현재 사용자의 UID(User ID)를 반환
-- **getpwuid(uid)**: ``getuid``로 얻은 ``uid``를 통해서 사용자 정보를 담은 **구조체(struct)** 를 반환
-
-- **passwd 구조체**: ``getpwuid``를 통해 얻은 구조체에서 ``pw_name``을 출력
+- **getuid()**: 현재 사용자의 UID(User ID)를 반환한다.
+- **getpwuid(uid)**: ``getuid``로 얻은 ``uid``를 통해서 사용자 정보를 담은 **구조체(struct)** 를 반환한다.
+- **passwd 구조체**: ``getpwuid``를 통해 얻은 구조체에서 ``pw_name``을 출력한다.
 ```c
 #include <pwd.h>
 
@@ -631,13 +602,11 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "사용법: %s [파일명]\n", argv[0]);
         return 1;
     }
-
     struct stat st;
     if (stat(argv[1], &st) == -1) {
         perror("stat 실패");
         return 1;
     }
-
     printf("%s: ", argv[1]);
 
     if (S_ISREG(st.st_mode)) {
@@ -657,12 +626,10 @@ int main(int argc, char *argv[]) {
     } else {
         printf("unknown type\n");
     }
-
     return 0;
 }
 ```
 ## 설명
-
 - ``sys/stat.h``의 ``stat()`` 함수로 파일 메타데이터를 구조체로 받아온다.
 - ``st_mode``의 비트 값을 ``S_ISREG()``, ``S_ISDIR()`` 등 매크로로 검사하여 파일의 타입을 판별한다.
 - ``file`` 명령어처럼 해당 파일이 일반 파일인지, 디렉토리인지, 심볼릭 링크인지 등을 출력한다.
@@ -684,13 +651,11 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "사용법: %s [파일 이름]\n", argv[0]);
         return 1;
     }
-
     FILE *fp = fopen(argv[1], "r");
     if (fp == NULL) {
         perror("파일 열기 실패");
         return 1;
     }
-
     char line[MAX_LINE];
     int count = 0;
 
@@ -698,18 +663,16 @@ int main(int argc, char *argv[]) {
         printf("%s", line);
         count++;
     }
-
     fclose(fp);
     return 0;
 }
 ```
 ## 설명
-
 - ``stdio.h``의 ``fopen()`` 함수를 사용하여 입력된 텍스트 파일을 **읽기 전용 모드("r")**로 연다.
-- ``fgets()``를 통해 파일에서 **한 줄씩 읽고**, ``printf()``를 사용하여 화면에 출력한다.
-- 출력된 줄의 수가 10줄에 도달하면 반복을 종료한다.
-- 파일을 모두 출력한 뒤에는 ``fclose()``를 사용하여 파일을 닫는다.
-- 이는 ``head`` 명령어와 동일하게, 텍스트 파일의 처음 10줄만 출력하는 동작을 수행한다.
+- ``fgets()``를 통해 파일에서 한 줄씩 읽고, ``printf()``를 사용하여 화면에 출력한다.
+- 출력된 줄의 수가 10줄이 되면 반복을 종료한다.
+- 파일을 모두 출력한 뒤 ``fclose()``를 사용하여 파일을 닫는다.
+- ``head`` 명령어와 동일하게 텍스트 파일의 처음 10줄만 출력하는 동작을 수행한다.
 
 ## 컴파일 및 실행화면
 
@@ -728,13 +691,11 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "사용법: %s [파일 이름]\n", argv[0]);
         return 1;
     }
-
     FILE *fp = fopen(argv[1], "r");
     if (fp == NULL) {
         perror("파일 열기 실패");
         return 1;
     }
-
     char line[MAX_LINE];
     int count = 0;
 
@@ -742,16 +703,14 @@ int main(int argc, char *argv[]) {
         printf("%s", line);
         count++;
     }
-
     fclose(fp);
     return 0;
 }
 ```
 ## 설명
-
 - 프로그램 실행 시 ``줄 수``와 ``파일 이름``을 인자로 전달받아, ``execvp()`` 함수를 통해 시스템의 ``head -n [줄 수] [파일 이름]`` 명령어를 실행한다.
 - ``char *args[]`` 배열에 명령어 인자들을 구성하고, ``execvp("head", args)``를 호출하여 현재 프로세스를 ``head``로 대체한다.
-- 이로써 외부 명령어 ``head``가 직접 실행되어 지정된 줄 수만큼 파일 내용을 출력하게 된다.
+- 외부 명령어 ``head``가 직접 실행되어 지정된 줄 수만큼 파일 내용을 출력하게 된다.
 
 ## 컴파일 및 실행화면
 
@@ -773,13 +732,11 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "사용법: %s [파일 이름]\n", argv[0]);
         return 1;
     }
-
     FILE *fp = fopen(argv[1], "r");
     if (!fp) {
         perror("파일 열기 실패");
         return 1;
     }
-
     char *lines[MAX_LINES];
     int count = 0;
 
@@ -801,12 +758,10 @@ int main(int argc, char *argv[]) {
         printf("%s", lines[i % MAX_LINES]);
         free(lines[i % MAX_LINES]); // 메모리 해제
     }
-
     return 0;
 }
 ```
 ## 설명
-
 - ``fopen()`` 함수로 텍스트 파일을 읽기 전용 모드로 연다.
 - ``fgets()``를 사용해 한 줄씩 읽고, ``strdup()``으로 문자열을 동적으로 저장한다.
 - 최대 1024줄까지 순환 버퍼 형태로 저장하여, 최근 줄만 유지하도록 한다.
@@ -834,13 +789,11 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "사용법: %s [파일 이름]\n", argv[0]);
         return 1;
     }
-
     FILE *fp = fopen(argv[1], "r");
     if (!fp) {
         perror("파일 열기 실패");
         return 1;
     }
-
     char *lines[MAX_LINES];
     int count = 0;
 
@@ -862,12 +815,10 @@ int main(int argc, char *argv[]) {
         printf("%s", lines[i % MAX_LINES]);
         free(lines[i % MAX_LINES]); // 메모리 해제
     }
-
     return 0;
 }
 ```
 ## 설명
-
 - ``argv[1]``에서 출력할 줄 수를 정수로 파싱하고, ``argv[2]``의 파일을 ``fopen()``으로 읽기 전용으로 연다.
 - ``fgets()``로 줄 단위로 읽고, ``strdup()``으로 복사하여 순환 배열에 저장한다.
 - 총 줄 개수에서 출력할 줄 수를 뺀 인덱스부터 출력하고, ``free()``로 메모리를 해제한다.
@@ -889,7 +840,6 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "사용법: %s [디렉토리 이름]\n", argv[0]);
         return 1;
     }
-
     const char *dirname = argv[1];
 
     // 0755 권한: rwxr-xr-x
@@ -897,13 +847,12 @@ int main(int argc, char *argv[]) {
         perror("디렉토리 생성 실패");
         return 1;
     }
-
     printf("디렉토리 '%s' 생성 완료\n", dirname);
     return 0;
 }
 ```
 ## 설명
-- **명령줄 인자(argc, argv)** 를 활용하여 구현했습니다.
+- **명령줄 인자(argc, argv)** 를 활용하여 구현함
 - ``sys/stat.h`` 헤더에 있는 **mkdir()** 함수를 통해서 디렉토리를 생성하며, 권한으로 **0755(사용자 rwx, 그룹 r-x, 기타 r-x)**를 준다.
 
 ## 컴파일 및 실행화면
@@ -922,21 +871,18 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "사용법: %s [디렉토리 이름]\n", argv[0]);
         return 1;
     }
-
     const char *dirname = argv[1];
 
     if (rmdir(dirname) == -1) {
         perror("디렉토리 삭제 실패");
         return 1;
     }
-
     printf("디렉토리 '%s' 삭제 완료\n", dirname);
     return 0;
 }
 ```
 ## 설명
-- **명령줄 인자(argc, argv)** 를 활용하여 구현했습니다.
-
+- **명령줄 인자(argc, argv)** 를 활용하여 구현함
 - ``unistd.h`` 헤더에 있는 **rmdir()** 함수를 통해서 디렉토리를 삭제한다.
 
 ## 컴파일 및 실행화면
@@ -957,7 +903,6 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "사용법: %s [파일 이름]\n", argv[0]);
         return 1;
     }
-
     const char *filename = argv[1];
     int fd;
 
@@ -974,15 +919,12 @@ int main(int argc, char *argv[]) {
         perror("시간 갱신 실패");
         return 1;
     }
-
     return 0;
 }
 ```
 ## 설명
-- **명령줄 인자(argc, argv)** 를 활용하여 구현했습니다.
-
+- **명령줄 인자(argc, argv)** 를 활용하여 구현함
 - ``open()`` 에서 ``fcntl.h`` 에 정의된 **상수(O_CREAT, O_WRONLY)**들을 사용하여 파일이 존재하면 열고, 없으면 **0644권한(사용자 rw-, 그룹 r--, 기타 r--)**의 파일을 생성한 뒤, 즉시 닫는다.
-
 - ``utime.h``에 정의된 **utime()** 함수로 파일의 접근시간과 수정시간을 변경한다.
 
 ## 컴파일 및 실행화면
@@ -999,26 +941,22 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "사용법: %s [파일 이름]\n", argv[0]);
         return 1;
     }
-
     FILE *fp = fopen(argv[1], "r");
     if (fp == NULL) {
         perror("파일 열기 실패");
         return 1;
     }
-
     int c;
     while ((c = fgetc(fp)) != EOF) {
         putchar(c);
     }
-
     fclose(fp);
     return 0;
 }
 ```
 ## 설명
-
 - ``stdio.h``의 ``fopen()`` 함수를 사용하여 입력된 텍스트 파일을 **읽기 전용 모드("r")**로 연다.
-- ``fgetc()``를 통해 파일에서 **한 문자씩 읽어오고**, ``putchar()``로 화면에 출력한다.
+- ``fgetc()``를 통해 파일에서 한 문자씩 읽어오고, ``putchar()``로 화면에 출력한다.
 - 파일의 끝(`EOF`)까지 반복하며 출력한 뒤, ``fclose()``로 파일을 닫는다.
 - 텍스트 파일 하나의 전체 내용을 터미널에 출력하는 ``cat`` 명령어와 동일한 방식으로 동작한다.
 
@@ -1037,13 +975,11 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "사용법: %s [파일명]\n", argv[0]);
         return 1;
     }
-
     FILE *file = fopen(argv[1], "r");
     if (!file) {
         perror("파일 열기 실패");
         return 1;
     }
-
     int c;
     int line = 1;
     int new_line = 1;
@@ -1053,25 +989,22 @@ int main(int argc, char *argv[]) {
             printf("%6d  ", line++);
             new_line = 0;
         }
-
         putchar(c);
 
         if (c == '\n') {
             new_line = 1;
         }
     }
-
     fclose(file);
     return 0;
 }
 ```
 ## 설명
-
 - fopen() 함수로 파일을 읽기 전용 모드 "r"로 연다.
 - fgetc()로 파일을 한 문자씩 읽어오고, putchar()로 출력한다.
 - 줄 바꿈 문자 \n이 나오면 줄 번호를 증가시키고 다음 줄에도 번호를 붙인다.
 - cat -n 명령어처럼 각 줄 앞에 줄 번호를 출력한다.
-- 출력 포맷은 printf("%6d ", line++)처럼 줄 번호 6자리 정렬.
+- 출력 포맷은 printf("%6d ", line++)처럼 줄 번호가 6자리로 정렬된다.
 
 ## 컴파일 및 실행화면
 
@@ -1086,13 +1019,12 @@ int main() {
     printf("\033[2J");   // 화면 전체 지우기
     printf("\033[H");    // 커서를 좌측 상단으로 이동
     fflush(stdout);      // 출력 즉시 반영
-
     return 0;
 }
 ```
 
 ## 설명
-- ``printf("\033[2J")``와 ``printf("\033[H")``를 이용해 직접 **ANSI escape 코드** 를 출력하여 화면을 지우고 커서를 초기 위치로 이동시켰습니다.
+- ``printf("\033[2J")``와 ``printf("\033[H")``를 이용해 직접 **ANSI escape 코드** 를 출력하여 화면을 지우고 커서를 초기 위치로 이동시켰다.
 
 ## 컴파일 및 실행화면
 - 실행 전
@@ -1127,14 +1059,13 @@ int main() {
         perror("localtime 오류");
         return 1;
     }
-
     return 0;
 }
 ```
 ## 설명
-- **time()**: 현재 시각을 **1970년 1월 1일 기준**으로 **초 단위**로 반환
+- **time()**: 현재 시각을 **1970년 1월 1일 기준**으로 **초 단위**로 반환한다.
 - **localtime()**: ``time_t`` 형식의 시간을 ``struct tm`` **구조체**로 변환하여 **년, 월, 일, 시, 분, 초** 등의 정보로 나눠줍니다.
-- **tm 구조체**: ``localtime``을 통해서 얻은 구조체에서 시간, 날짜, 요일 등을 출력
+- **tm 구조체**: ``localtime``을 통해서 얻은 구조체에서 시간, 날짜, 요일 등을 출력한다.
 
 ## 컴파일 및 실행화면
 
@@ -1152,7 +1083,6 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "사용법: %s [경로]\n", argv[0]);
         return 1;
     }
-
     char path[1024];
     snprintf(path, sizeof(path), "%s", argv[1]);
 
@@ -1161,7 +1091,6 @@ int main(int argc, char *argv[]) {
 }
 ```
 ## 설명
-
 - libgen.h에 정의된 dirname() 함수는 문자열에서 마지막 '/' 앞부분을 반환한다.
 - dirname()은 원본 문자열을 수정하므로, snprintf()로 복사한 후 사용한다.
 - 경로가 포함된 파일이나 디렉토리 경로를 받아 디렉토리 부분만 출력한다.
@@ -1182,20 +1111,16 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "사용법: %s [초 단위 시간]\n", argv[0]);
         return 1;
     }
-
     int seconds = atoi(argv[1]);  // 문자열 → 정수 변환
     if (seconds < 0) {
         fprintf(stderr, "양의 정수를 입력하세요.\n");
         return 1;
     }
-
     sleep(seconds);  // 실행 일시 정지
-
     return 0;
 }
 ```
 ## 설명
-
 - unistd.h에 정의된 sleep() 함수는 초 단위로 프로그램을 일시 중지시킨다.
 - atoi() 함수로 입력 문자열을 정수로 바꾼 뒤, 음수면 오류 처리한다.
 - ./sleep_c 5라고 실행하면 5초 동안 멈췄다가 종료된다.
@@ -1214,7 +1139,7 @@ int main() {
 
 ```
 ## 설명
-- **exit()**을 이용해서 구현했습니다.
+- **exit()**을 이용해서 구현함
 
 ## 컴파일 및 실행화면
 
