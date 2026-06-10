@@ -21,7 +21,7 @@ int main() {
 - **PATH_MAX**는 ``limits.h``에 정의된 상수이다. (크기: 4096)
 
 ## 컴파일 및 실행화면
-![Image](https://github.com/user-attachments/assets/fa61f2c7-2b38-476d-b91d-fc9fd3e5c13a)
+<img width="424" height="82" alt="1 pwd" src="https://github.com/user-attachments/assets/e2e33759-21bc-41f1-88b3-b2621a636232" />
 
 # **2.ls**: 현재 디렉토리의 파일/디렉토리 이름 출력
 ```c
