@@ -20,7 +20,7 @@ int main() {
 - ``getcwd(char *buf, size_t size)`` 함수를 통해서 현재 위치를 저장할 수 있다.
 - **PATH_MAX**는 ``limits.h``에 정의된 상수이다. (크기: 4096)
 
-## 실행화면
+## 실행 화면
 
 <img width="424" height="82" alt="1 pwd" src="https://github.com/user-attachments/assets/e2e33759-21bc-41f1-88b3-b2621a636232" />
 
@@ -55,7 +55,7 @@ int main() {
 - **if(entry->d_name[0] != '.')**: 숨김 파일은 출력하지 못하게 하기 위해 구현한다.
 - **entry = readdir(dir) != NULL**: 현재 디렉토리의 항목을 하나씩 읽고 **NULL**이 아니면 출력, **NULL**이면 while문을 나가고 ``closedir()``을 통해서 디렉토리를 닫는다.
 
-## 실행화면
+## 실행 화면
 
 <img width="477" height="690" alt="2 ls" src="https://github.com/user-attachments/assets/6cbf3629-cbb3-42d5-a23a-0446ae6dda9f" />
 
@@ -87,7 +87,7 @@ int main() {
 - **opendir()**: ``dirent.h`` 라이브러리를 통해서 DIR 타입의 포인터 변수를 만들고 ``opendir(".")`` 을 통해서 현재 디렉토리의 정보를 dir 변수에 넣는다.
 - **entry = readdir(dir) != NULL**: 현재 디렉토리의 항목을 하나씩 읽고 **NULL**이 아니면 출력, **NULL**이면 while문을 나가고 ``closedir()``을 통해서 디렉토리를 닫는다.
 
-## 실행화면
+## 실행 화면
 
 <img width="578" height="954" alt="3 ls-a" src="https://github.com/user-attachments/assets/472a0faa-ca7a-4375-bf5a-099cd58bb25f" />
 
@@ -162,7 +162,7 @@ int main() {
 - ``sys/stat.h`` 라이브러리에 정의된 파일 권한 관련 상수들로 파일의 권한을 구분 및 stat 구조체를 사용했다.
 - ``stat``, ``dirent`` **구조체**들로 필요한 정보들 출력한다.
 
-## 실행화면
+## 실행 화면
 
 <img width="550" height="726" alt="4 ls-l" src="https://github.com/user-attachments/assets/a7989420-6d92-4316-94f5-cc0dccf076df" />
 
@@ -233,7 +233,7 @@ int main() {
 - ``sys/stat.h`` 라이브러리에 정의된 파일 권한 관련 상수들로 파일의 권한을 구분 및 stat 구조체를 사용한다.
 - ``stat``, ``dirent`` **구조체**들로 필요한 정보들을 출력한다.
 
-## 실행화면
+## 실행 화면
 
 <img width="636" height="992" alt="5 ls-al" src="https://github.com/user-attachments/assets/73eecdae-b883-4580-a289-7a9329119b5c" />
 
@@ -267,7 +267,7 @@ int main() {
 - **getgrgid()**: ``GID``를 통해서 **구조체** 를 반환한다.
 - **구조체**: ``UID``, ``GID`` 구조체를 통해서 각 name을 출력한다.
 
-## 실행화면
+## 실행 화면
 
 <img width="398" height="84" alt="6 id" src="https://github.com/user-attachments/assets/ae471a37-f8ae-45b8-930a-9003f15b81f3" />
 
@@ -288,7 +288,7 @@ int main() {
 - ``printf()``로 UID를 출력한다.
 - ``id -u`` 명령어와 같은 방식으로 현재 사용자의 UID만 출력한다.
 
-## 실행화면
+## 실행 화면
 
 <img width="442" height="78" alt="7 id-u" src="https://github.com/user-attachments/assets/7b2b5ec4-c6f8-42c3-b174-fd6d6762a923" />
 
@@ -309,7 +309,7 @@ int main() {
 - ``printf()``로 GID를 출력한다.
 - ``id -g`` 명령어와 같은 방식으로 현재 사용자의 기본 그룹 ID만 출력한다.
 
-## 실행화면
+## 실행 화면
 
 <img width="439" height="83" alt="8 id-g" src="https://github.com/user-attachments/assets/c2b1b891-629d-4bac-a8c3-5842f4bc6d27" />
 
@@ -336,7 +336,7 @@ int main() {
 - **HOST_NAME_MAX**: ``limits.h`` 헤더에 정의된 상수이며 1을 더하는 이유는 문자열의 끝에 있는 ``널 문자(\\0)`` 때문이다. **※크기는 리눅스에서 64이다.**
 - **gethostname(char *name, size_t len)**: hostname을 반환하는 함수이다.
 
-## 실행화면
+## 실행 화면
 
 <img width="516" height="79" alt="9 hostname" src="https://github.com/user-attachments/assets/01d323cb-3c4c-4642-8aca-1a17a6dcd9a6" />
 
@@ -389,7 +389,7 @@ int main() {
 - 루프백 주소(127.0.0.1)는 제외하고 출력한다.
 - 여러 개의 IP가 있을 수 있으므로 공백으로 구분해 모두 출력한다.
 
-## 실행화면
+## 실행 화면
 
 <img width="552" height="81" alt="10 hostname-I" src="https://github.com/user-attachments/assets/997e9cdb-7711-4339-baca-10dbfd1b8181" />
 
@@ -414,7 +414,7 @@ int main() {
 ## 코드 설명
 - ``sys/utsname.h``에 정의된 **uname()** 함수로 커널 이름을 들고 온다.
 
-## 실행화면
+## 실행 화면
 
 <img width="460" height="84" alt="11 uname" src="https://github.com/user-attachments/assets/87e4d414-9ef4-4bbd-9f19-fc557ffe9096" />
 
@@ -448,7 +448,7 @@ int main() {
 - 구조체의 각 필드를 활용하여 운영 체제, 노드 이름, 커널 버전, 하드웨어 정보 등을 출력한다.
 - ``uname -a`` 명령어와 동일하게 전체 시스템 정보를 출력한다.
 
-## 실행화면
+## 실행 화면
 
 <img width="1078" height="101" alt="12 uname-a" src="https://github.com/user-attachments/assets/b2cb1367-e77d-4500-8747-bbe8982e8858" />
 
@@ -489,7 +489,7 @@ struct passwd {
 ```
 
 
-## 실행화면
+## 실행 화면
 
 <img width="482" height="85" alt="13 whoami" src="https://github.com/user-attachments/assets/a5537bab-e554-4b2c-9941-945a597a2d2c" />
 
@@ -537,7 +537,7 @@ int main(int argc, char *argv[]) {
 - ``st_mode``의 비트 값을 ``S_ISREG()``, ``S_ISDIR()`` 등 매크로로 검사하여 파일의 타입을 판별한다.
 - ``file`` 명령어처럼 해당 파일이 일반 파일인지, 디렉토리인지, 심볼릭 링크인지 등을 출력한다.
 
-## 실행화면
+## 실행 화면
 
 <img width="442" height="57" alt="14 file" src="https://github.com/user-attachments/assets/b333a3af-869f-4b38-81eb-ddae0098c86d" />
 
@@ -578,7 +578,7 @@ int main(int argc, char *argv[]) {
 - 파일을 모두 출력한 뒤 ``fclose()``를 사용하여 파일을 닫는다.
 - ``head`` 명령어와 동일하게 텍스트 파일의 처음 10줄만 출력하는 동작을 수행한다.
 
-## 실행화면
+## 실행 화면
 
 <img width="588" height="254" alt="15 head" src="https://github.com/user-attachments/assets/a574eacb-dd14-4a73-bab1-9138009a01b1" />
 
@@ -636,7 +636,7 @@ int main(int argc, char *argv[]) {
 - 출력 후 ``free()`` 함수를 통해 메모리를 해제한다.
 - ``tail`` 명령어와 동일하게, 파일의 마지막 10줄만 출력한다.
 
-## 실행화면
+## 실행 화면
 
 <img width="505" height="310" alt="16 tail" src="https://github.com/user-attachments/assets/94113a61-0cf2-4b8f-87b2-b53101d7f255" />
 
@@ -668,7 +668,7 @@ int main(int argc, char *argv[]) {
 - **명령줄 인자(argc, argv)** 를 활용하여 구현함
 - ``sys/stat.h`` 헤더에 있는 **mkdir()** 함수를 통해서 디렉토리를 생성하며, 권한으로 **0755(사용자 rwx, 그룹 r-x, 기타 r-x)**를 준다.
 
-## 실행화면
+## 실행 화면
 
 <img width="486" height="80" alt="17 mkdir" src="https://github.com/user-attachments/assets/6fcfc9f4-92d8-439b-b173-add95b7b4dc6" />
 
@@ -699,7 +699,7 @@ int main(int argc, char *argv[]) {
 - **명령줄 인자(argc, argv)** 를 활용하여 구현함
 - ``unistd.h`` 헤더에 있는 **rmdir()** 함수를 통해서 디렉토리를 삭제한다.
 
-## 실행화면
+## 실행 화면
 
 <img width="484" height="77" alt="18 rmdir" src="https://github.com/user-attachments/assets/47e396cd-4dfb-49b6-ad75-58a8deaac82a" />
 
@@ -742,7 +742,7 @@ int main(int argc, char *argv[]) {
 - ``open()`` 에서 ``fcntl.h`` 에 정의된 **상수(O_CREAT, O_WRONLY)**들을 사용하여 파일이 존재하면 열고, 없으면 **0644권한(사용자 rw-, 그룹 r--, 기타 r--)**의 파일을 생성한 뒤, 즉시 닫는다.
 - ``utime.h``에 정의된 **utime()** 함수로 파일의 접근시간과 수정시간을 변경한다.
 
-## 실행화면
+## 실행 화면
 
 <img width="605" height="378" alt="19 touch" src="https://github.com/user-attachments/assets/106a80d5-9120-41a3-b49d-66b3aabb5893" />
 
@@ -776,7 +776,7 @@ int main(int argc, char *argv[]) {
 - 파일의 끝(`EOF`)까지 반복하며 출력한 뒤, ``fclose()``로 파일을 닫는다.
 - 텍스트 파일 하나의 전체 내용을 터미널에 출력하는 ``cat`` 명령어와 동일한 방식으로 동작한다.
 
-## 실행화면
+## 실행 화면
 
 <img width="616" height="398" alt="20 (cat)" src="https://github.com/user-attachments/assets/f67d2d30-89db-4355-a002-f1b93bb786ad" />
 
@@ -823,7 +823,7 @@ int main(int argc, char *argv[]) {
 - cat -n 명령어처럼 각 줄 앞에 줄 번호를 출력한다.
 - 출력 포맷은 printf("%6d ", line++)처럼 줄 번호가 6자리로 정렬된다.
 
-## 실행화면
+## 실행 화면
 
 <img width="701" height="425" alt="21 cat-n" src="https://github.com/user-attachments/assets/a7668577-ace9-4953-9598-12c49b638fec" />
 
@@ -887,7 +887,7 @@ int main() {
 - **localtime()**: ``time_t`` 형식의 시간을 ``struct tm`` **구조체**로 변환하여 **년, 월, 일, 시, 분, 초** 등의 정보로 나눠줍니다.
 - **tm 구조체**: ``localtime``을 통해서 얻은 구조체에서 시간, 날짜, 요일 등을 출력한다.
 
-## 실행화면
+## 실행 화면
 
 <img width="449" height="86" alt="23 date" src="https://github.com/user-attachments/assets/bef0947d-fd45-43c0-a51b-0e64e90c8ead" />
 
@@ -916,7 +916,7 @@ int main(int argc, char *argv[]) {
 - dirname()은 원본 문자열을 수정하므로, snprintf()로 복사한 후 사용한다.
 - 경로가 포함된 파일이나 디렉토리 경로를 받아 디렉토리 부분만 출력한다.
 
-## 실행화면
+## 실행 화면
 
 <img width="540" height="135" alt="24 dirname" src="https://github.com/user-attachments/assets/0c981273-c0c8-4f39-9025-b0c15f2f2914" />
 
@@ -947,7 +947,7 @@ int main(int argc, char *argv[]) {
 - atoi() 함수로 입력 문자열을 정수로 바꾼 뒤, 음수면 오류 처리한다.
 - ./sleep_c 5라고 실행하면 5초 동안 멈췄다가 종료된다.
 
-## 실행화면
+## 실행 화면
 
 <img width="508" height="83" alt="25 sleep" src="https://github.com/user-attachments/assets/5f78639a-6d36-4537-b909-561426678ed5" />
 
@@ -964,7 +964,7 @@ int main() {
 ## 코드 설명
 - **exit()**을 이용해서 구현함
 
-## 실행화면
+## 실행 화면
 
 <img width="458" height="64" alt="26 exit" src="https://github.com/user-attachments/assets/c479f4d3-951b-429c-96bc-d9ab33696f45" />
 
@@ -988,7 +988,7 @@ int main(int argc, char *argv[]) {
 ## 코드 설명
 - **명령줄 인자(argc, argv)** 를 활용하여 구현했음
 
-## 실행화면
+## 실행 화면
 
 <img width="728" height="80" alt="27 echo" src="https://github.com/user-attachments/assets/ae653bb2-84b3-4649-9ada-71abf8fe7c37" />
 
@@ -1017,7 +1017,7 @@ int main(int argc, char *argv[]) {
 ## 코드 설명
 - ``unistd.h``에 정의된 **unlink()** 함수로 파일을 삭제한다.
 
-## 실행화면
+## 실행 화면
 
 <img width="434" height="57" alt="28 (rm)" src="https://github.com/user-attachments/assets/642d03e5-a5d0-4911-968d-190d79104870" />
 
@@ -1047,7 +1047,7 @@ int main(int argc, char *argv[]) {
 - ``unistd.h``에 정의된 **unlink()** 함수로 파일을 삭제한다.
 - 에러가 나도 무시하기 때문에 별도의 ``if문``은 없다.
 
-## 실행화면
+## 실행 화면
 
 <img width="600" height="761" alt="29 rm-f" src="https://github.com/user-attachments/assets/b39c899f-be7d-4223-b523-c11c07f358fd" />
 
@@ -1129,7 +1129,7 @@ int main(int argc, char *argv[]) {
 - 내부 항목이 파일이면 ``unlink()``로 삭제하고, 디렉토리면 다시 ``remove_recursive()``를 통해 같은 과정을 반복한다.
 - 디렉토리 내부가 모두 비워진 뒤에는 ``rmdir()`` 함수를 사용하여 **디렉토리 자체를 삭제**한다.
 
-## 실행화면
+## 실행 화면
 
 <img width="575" height="157" alt="30 rm-r" src="https://github.com/user-attachments/assets/36cb8ed5-565e-4530-99ac-76acffc3cbfd" />
 
