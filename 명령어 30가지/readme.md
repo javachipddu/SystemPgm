@@ -1,4 +1,4 @@
-# **1.pwd**: 현재 경로를 추력하는 명령어
+<img width="701" height="425" alt="21 cat-n" src="https://github.com/user-attachments/assets/67abfeb4-9b98-440b-a7b2-5bc12301d0fb" /># **1.pwd**: 현재 경로를 추력하는 명령어
 ```c
 #include <stdio.h>
 #include <unistd.h>   // getcwd 함수
@@ -21,7 +21,9 @@ int main() {
 - **PATH_MAX**는 ``limits.h``에 정의된 상수이다. (크기: 4096)
 
 ## 컴파일 및 실행화면
+
 <img width="424" height="82" alt="1 pwd" src="https://github.com/user-attachments/assets/e2e33759-21bc-41f1-88b3-b2621a636232" />
+
 
 # **2.ls**: 현재 디렉토리의 파일/디렉토리 이름 출력
 ```c
@@ -55,7 +57,8 @@ int main() {
 
 ## 컴파일 및 실행화면
 
-![Image](https://github.com/user-attachments/assets/2c473170-4cfe-4976-be23-fab44ac7efc9)
+<img width="477" height="690" alt="2 ls" src="https://github.com/user-attachments/assets/6cbf3629-cbb3-42d5-a23a-0446ae6dda9f" />
+
 
 # **3.ls -a**: 현재 디렉토리의 파일/디렉토리, 숨김처리 파일/디렉토리 이름 출력
 ```c
@@ -86,7 +89,8 @@ int main() {
 
 ## 컴파일 및 실행화면
 
-![Image](https://github.com/user-attachments/assets/5f2176f8-07ae-4799-bf14-aa121b18ca59)
+<img width="578" height="954" alt="3 ls-a" src="https://github.com/user-attachments/assets/472a0faa-ca7a-4375-bf5a-099cd58bb25f" />
+
 
 # **4.ls -l**: 현재 디렉토리의 파일/디렉토리 상세 정보 출력
 
@@ -160,7 +164,8 @@ int main() {
 
 ## 컴파일 및 실행화면
 
-![Image](https://github.com/user-attachments/assets/2d941b6c-5a1a-420d-8a58-19c0504a13de)
+<img width="550" height="726" alt="4 ls-l" src="https://github.com/user-attachments/assets/a7989420-6d92-4316-94f5-cc0dccf076df" />
+
 
 # **5.ls -al**: 현재 디렉토리의 파일/디렉토리 및 숨김처리 파일/디렉토리 상세 정보 출력
 
@@ -230,7 +235,8 @@ int main() {
 
 ## 컴파일 및 실행화면
 
-![Image](https://github.com/user-attachments/assets/081cd7ec-6993-4ed8-b839-2993d7dc9156)
+<img width="636" height="992" alt="5 ls-al" src="https://github.com/user-attachments/assets/73eecdae-b883-4580-a289-7a9329119b5c" />
+
 
 # **6.id**: 사용자 정보 출력
 ```c
@@ -263,7 +269,8 @@ int main() {
 
 ## 컴파일 및 실행화면
 
-![Image](https://github.com/user-attachments/assets/c4943a63-cec3-4a79-83b6-2cec0b2d7aac)
+<img width="398" height="84" alt="6 id" src="https://github.com/user-attachments/assets/ae471a37-f8ae-45b8-930a-9003f15b81f3" />
+
 
 # **7.id -u**: 현재 사용자의 **UID(User ID)** 만 출력하는 명령어
 ```c
@@ -283,7 +290,8 @@ int main() {
 
 ## 컴파일 및 실행화면
 
-![Image](https://github.com/user-attachments/assets/a9d83a92-881e-4175-b415-e9a3082e6a86)
+<img width="442" height="78" alt="7 id-u" src="https://github.com/user-attachments/assets/7b2b5ec4-c6f8-42c3-b174-fd6d6762a923" />
+
 
 # **8.id -g**: 현재 사용자의 **GID(기본 그룹 ID)** 만 출력하는 명령어
 ```c
@@ -303,7 +311,8 @@ int main() {
 
 ## 컴파일 및 실행화면
 
-![Image](https://github.com/user-attachments/assets/60805165-0b0f-4e58-904a-460a34704931)
+<img width="439" height="83" alt="8 id-g" src="https://github.com/user-attachments/assets/c2b1b891-629d-4bac-a8c3-5842f4bc6d27" />
+
 
 # **9.hostname**: 호스트 이름 출력
 ```c
@@ -329,7 +338,8 @@ int main() {
 
 ## 컴파일 및 실행화면
 
-![Image](https://github.com/user-attachments/assets/cf991eaa-861a-49dd-a505-9b53ba464ee3)
+<img width="516" height="79" alt="9 hostname" src="https://github.com/user-attachments/assets/01d323cb-3c4c-4642-8aca-1a17a6dcd9a6" />
+
 
 **※ hostname이 ip주소가 뜨는이유는 AWS를 사용하면 hostname이 기본적으로 ip주소로 만들어지기 때문이다.**
 
@@ -381,7 +391,8 @@ int main() {
 
 ## 컴파일 및 실행화면
 
-![Image](https://github.com/user-attachments/assets/48f2136b-0305-4924-9568-5b4d10297ac3)
+<img width="552" height="81" alt="10 hostname-I" src="https://github.com/user-attachments/assets/997e9cdb-7711-4339-baca-10dbfd1b8181" />
+
 
 # **11.uname**: 커널 이름 출력
 ```c
@@ -405,7 +416,8 @@ int main() {
 
 ## 컴파일 및 실행화면
 
-![Image](https://github.com/user-attachments/assets/8ac5f987-7d49-4a68-ba1c-f333b1f1f282)
+<img width="460" height="84" alt="11 uname" src="https://github.com/user-attachments/assets/87e4d414-9ef4-4bbd-9f19-fc557ffe9096" />
+
 
 # **12.uname -a**: 운영체제에 대한 전체 시스템 정보를 출력하는 명령어
 
@@ -438,7 +450,8 @@ int main() {
 
 ## 컴파일 및 실행화면
 
-![Image](https://github.com/user-attachments/assets/d32af6a2-3b5c-4f39-b4ab-5aeb58d905dc)
+<img width="1078" height="101" alt="12 uname-a" src="https://github.com/user-attachments/assets/b2cb1367-e77d-4500-8747-bbe8982e8858" />
+
 
 # **13.whoami**: 현재 사용자 출력
 ```c
@@ -478,7 +491,8 @@ struct passwd {
 
 ## 컴파일 및 실행화면
 
-![Image](https://github.com/user-attachments/assets/e6e82748-e627-457c-a39e-b3f24ed39bf0)
+<img width="482" height="85" alt="13 whoami" src="https://github.com/user-attachments/assets/a5537bab-e554-4b2c-9941-945a597a2d2c" />
+
 
 # **14.file**: 파일의 **종류(type)**를 출력하는 명령어
 ```c
@@ -525,7 +539,8 @@ int main(int argc, char *argv[]) {
 
 ## 컴파일 및 실행화면
 
-![Image](https://github.com/user-attachments/assets/5972b3a6-46f1-42d5-85e0-405cb818d92e)
+<img width="442" height="57" alt="14 file" src="https://github.com/user-attachments/assets/b333a3af-869f-4b38-81eb-ddae0098c86d" />
+
 
 # **15.head**: 파일의 처음 몇 줄을 출력하는 명령어 ``[ 기본값:10줄 ]``
 
@@ -565,7 +580,8 @@ int main(int argc, char *argv[]) {
 
 ## 컴파일 및 실행화면
 
-![Image](https://github.com/user-attachments/assets/6b00072c-0de1-46ca-b7de-65a9f119d6dd)
+<img width="588" height="254" alt="15 head" src="https://github.com/user-attachments/assets/a574eacb-dd14-4a73-bab1-9138009a01b1" />
+
 
 # **16.tail**: 파일의 마지막 몇 줄을 출력하는 명령어 ``[ 기본값: 10줄 ]``
 
@@ -622,7 +638,8 @@ int main(int argc, char *argv[]) {
 
 ## 컴파일 및 실행화면
 
-![Image](https://github.com/user-attachments/assets/22668243-a17e-45ed-ad25-ea98bfa352d7)
+<img width="505" height="310" alt="16 tail" src="https://github.com/user-attachments/assets/94113a61-0cf2-4b8f-87b2-b53101d7f255" />
+
 
 # **17.mkdir**: 디렉토리 생성 명령어
 
@@ -653,7 +670,8 @@ int main(int argc, char *argv[]) {
 
 ## 컴파일 및 실행화면
 
-![Image](https://github.com/user-attachments/assets/ba940adc-f71a-4d68-af67-316888af008b)
+<img width="486" height="80" alt="17 mkdir" src="https://github.com/user-attachments/assets/6fcfc9f4-92d8-439b-b173-add95b7b4dc6" />
+
 
 # **18.rmdir**: 디렉토리 삭제 명령어
 
@@ -683,7 +701,8 @@ int main(int argc, char *argv[]) {
 
 ## 컴파일 및 실행화면
 
-![Image](https://github.com/user-attachments/assets/51d0c882-8c09-49a1-8179-39fb2d338f3c)
+<img width="484" height="77" alt="18 rmdir" src="https://github.com/user-attachments/assets/47e396cd-4dfb-49b6-ad75-58a8deaac82a" />
+
 
 # **19.touch**: 파일이 없으면 생성, 있으면 마지막 수정 시간 갱신 명령어
 
@@ -725,7 +744,8 @@ int main(int argc, char *argv[]) {
 
 ## 컴파일 및 실행화면
 
-![Image](https://github.com/user-attachments/assets/f5fe9a37-3288-4518-aa50-6a7cd76493a4)
+<img width="605" height="378" alt="19 touch" src="https://github.com/user-attachments/assets/106a80d5-9120-41a3-b49d-66b3aabb5893" />
+
 
 # **20.cat**: 파일 내용을 출력하는 명령어
 
@@ -758,7 +778,8 @@ int main(int argc, char *argv[]) {
 
 ## 컴파일 및 실행화면
 
-![Image](https://github.com/user-attachments/assets/b0c6d522-ff02-4bbf-83b1-16b8d69db1c2)
+<img width="616" height="398" alt="20 (cat)" src="https://github.com/user-attachments/assets/f67d2d30-89db-4355-a002-f1b93bb786ad" />
+
 
 # **21.cat -n**: 텍스트 파일의 각 줄 앞에 줄 번호를 붙여 출력하는 명령어
 
@@ -804,7 +825,8 @@ int main(int argc, char *argv[]) {
 
 ## 컴파일 및 실행화면
 
-![Image](https://github.com/user-attachments/assets/a9b68d70-299b-40b3-97ab-56ba843da718)
+<img width="701" height="425" alt="21 cat-n" src="https://github.com/user-attachments/assets/a7668577-ace9-4953-9598-12c49b638fec" />
+
 
 # **22.clear**: 화면 지우기
 ```c
@@ -822,14 +844,16 @@ int main() {
 ## 설명
 - ``printf("\033[2J")``와 ``printf("\033[H")``를 이용해 직접 **ANSI escape 코드** 를 출력하여 화면을 지우고 커서를 초기 위치로 이동시켰다.
 
-## 컴파일 및 실행화면
-- 실행 전
+## 컴파일 및 실행 화면
+- 전
 
-![Image](https://github.com/user-attachments/assets/2cd401e1-03fb-4983-9c29-e9fd4364c783)
+<img width="794" height="582" alt="22 clear전" src="https://github.com/user-attachments/assets/7a365cbd-60ef-4813-9f67-0a9d87414056" />
 
-- 실행 후
 
-![Image](https://github.com/user-attachments/assets/e3f4da39-3a70-42a8-aeb7-aa658925ac0b)
+- 후
+
+<img width="582" height="164" alt="22 clear후" src="https://github.com/user-attachments/assets/64411aa9-72d9-47fb-8359-1b29a3ef5a7d" />
+
 
 # **23.date**: 현재 시간 출력
 ```c
@@ -865,7 +889,8 @@ int main() {
 
 ## 컴파일 및 실행화면
 
-![Image](https://github.com/user-attachments/assets/a8fbd1b7-e720-493a-85ef-31f70db7fc8a)
+<img width="449" height="86" alt="23 date" src="https://github.com/user-attachments/assets/bef0947d-fd45-43c0-a51b-0e64e90c8ead" />
+
 
 # **24.dirname**: 경로에서 디렉토리 이름만 추출하는 명령어
 
@@ -893,7 +918,8 @@ int main(int argc, char *argv[]) {
 
 ## 컴파일 및 실행화면
 
-![Image](https://github.com/user-attachments/assets/828d918e-2cb0-43a3-80dd-ea761ad958b0)
+<img width="540" height="135" alt="24 dirname" src="https://github.com/user-attachments/assets/0c981273-c0c8-4f39-9025-b0c15f2f2914" />
+
 
 # **25.sleep**: 주어진 초(seconds)만큼 프로그램 실행을 일시 중지하는 명령어
 
@@ -923,7 +949,8 @@ int main(int argc, char *argv[]) {
 
 ## 컴파일 및 실행화면
 
-![Image](https://github.com/user-attachments/assets/11664e4f-fafd-47e7-ba48-30b2e22ad1e8)
+<img width="508" height="83" alt="25 sleep" src="https://github.com/user-attachments/assets/5f78639a-6d36-4537-b909-561426678ed5" />
+
 
 # **26.exit**: 프로그램 종료 명령어
 ```c
@@ -939,7 +966,8 @@ int main() {
 
 ## 컴파일 및 실행화면
 
-![Image](https://github.com/user-attachments/assets/4ecf80b8-c6d1-4c0c-8df0-3d159adcb7df)
+<img width="458" height="64" alt="26 exit" src="https://github.com/user-attachments/assets/c479f4d3-951b-429c-96bc-d9ab33696f45" />
+
 
 # **27.echo**: 문자열 출력
 ```c
@@ -961,7 +989,9 @@ int main(int argc, char *argv[]) {
 - **명령줄 인자(argc, argv)** 를 활용하여 구현했음
 
 ## 컴파일 및 실행화면
-![Image](https://github.com/user-attachments/assets/615196a4-a22e-459f-ba3b-cc73a21c90ab)
+
+<img width="728" height="80" alt="27 echo" src="https://github.com/user-attachments/assets/ae653bb2-84b3-4649-9ada-71abf8fe7c37" />
+
 
 # **28.rm**: 파일 삭제 명령어
 
@@ -989,7 +1019,8 @@ int main(int argc, char *argv[]) {
 
 ## 컴파일 및 실행화면
 
-![Image](https://github.com/user-attachments/assets/b183c897-4e00-4e43-8d3a-db87833a3d82)
+<img width="434" height="57" alt="28 (rm)" src="https://github.com/user-attachments/assets/642d03e5-a5d0-4911-968d-190d79104870" />
+
 
 # **29.rm -f**: 파일 조용한 삭제 명령어
 
@@ -1018,7 +1049,8 @@ int main(int argc, char *argv[]) {
 
 ## 컴파일 및 실행화면
 
-![Image](https://github.com/user-attachments/assets/d52b9881-f300-4195-a440-1f3b4cbe1a23)
+<img width="600" height="761" alt="29 rm-f" src="https://github.com/user-attachments/assets/b39c899f-be7d-4223-b523-c11c07f358fd" />
+
 
 # **30.rm -r**: 디렉토리 및 내부 파일/디렉토리 재귀적 삭제
 
@@ -1099,4 +1131,5 @@ int main(int argc, char *argv[]) {
 
 ## 컴파일 및 실행화면
 
-![Image](https://github.com/user-attachments/assets/3bd44a32-10cc-48c4-98e9-995acf8616bc)
+<img width="575" height="157" alt="30 rm-r" src="https://github.com/user-attachments/assets/36cb8ed5-565e-4530-99ac-76acffc3cbfd" />
+
