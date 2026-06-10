@@ -1,4 +1,4 @@
-<img width="701" height="425" alt="21 cat-n" src="https://github.com/user-attachments/assets/67abfeb4-9b98-440b-a7b2-5bc12301d0fb" /># **1.pwd**: 현재 경로를 추력하는 명령어
+# **1.pwd**: 현재 경로를 추력하는 명령어
 ```c
 #include <stdio.h>
 #include <unistd.h>   // getcwd 함수
