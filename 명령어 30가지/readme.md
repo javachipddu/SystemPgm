@@ -1,5 +1,4 @@
-## 명령어
-- **pwd**: 현재 경로를 추력하는 명령어
+# **1.pwd**: 현재 경로를 추력하는 명령어
 ```c
 #include <stdio.h>
 #include <unistd.h>   // getcwd 함수
@@ -25,8 +24,7 @@ int main() {
 ## 컴파일 및 실행화면
 ![Image](https://github.com/user-attachments/assets/fa61f2c7-2b38-476d-b91d-fc9fd3e5c13a)
 
-## 명령어
-- **ls**: 현재 디렉토리의 파일/디렉토리 이름 출력
+# **2.ls**: 현재 디렉토리의 파일/디렉토리 이름 출력
 ```c
 #include <stdio.h>
 #include <dirent.h>
@@ -62,8 +60,7 @@ int main() {
 
 ![Image](https://github.com/user-attachments/assets/2c473170-4cfe-4976-be23-fab44ac7efc9)
 
-## 명령어
-- **ls -a**: 현재 디렉토리의 파일/디렉토리, 숨김처리 파일/디렉토리 이름 출력
+# **3.ls -a**: 현재 디렉토리의 파일/디렉토리, 숨김처리 파일/디렉토리 이름 출력
 ```c
 #include <stdio.h>
 #include <dirent.h>
@@ -95,8 +92,7 @@ int main() {
 
 ![Image](https://github.com/user-attachments/assets/5f2176f8-07ae-4799-bf14-aa121b18ca59)
 
-## 명령어
-- **ls -l**: 현재 디렉토리의 파일/디렉토리 상세 정보 출력
+# **4.ls -l**: 현재 디렉토리의 파일/디렉토리 상세 정보 출력
 
 ```c
 #include <stdio.h>
@@ -173,8 +169,7 @@ int main() {
 
 ![Image](https://github.com/user-attachments/assets/2d941b6c-5a1a-420d-8a58-19c0504a13de)
 
-## 명령어
-- **ls -al**: 현재 디렉토리의 파일/디렉토리 및 숨김처리 파일/디렉토리 상세 정보 출력
+# **5.ls -al**: 현재 디렉토리의 파일/디렉토리 및 숨김처리 파일/디렉토리 상세 정보 출력
 
 ```c
 #include <stdio.h>
@@ -247,8 +242,7 @@ int main() {
 
 ![Image](https://github.com/user-attachments/assets/081cd7ec-6993-4ed8-b839-2993d7dc9156)
 
-## 명령어
-- **id**: 사용자 정보 출력
+#**6.id**: 사용자 정보 출력
 ```c
 #include <stdio.h>
 #include <unistd.h>
@@ -283,8 +277,7 @@ int main() {
 
 ![Image](https://github.com/user-attachments/assets/c4943a63-cec3-4a79-83b6-2cec0b2d7aac)
 
-## 명령어
-- **id -u**: 현재 사용자의 **UID(User ID)** 만 출력하는 명령어
+# **7.id -u**: 현재 사용자의 **UID(User ID)** 만 출력하는 명령어
 ```c
 #include <stdio.h>
 #include <unistd.h>
@@ -305,8 +298,7 @@ int main() {
 
 ![Image](https://github.com/user-attachments/assets/a9d83a92-881e-4175-b415-e9a3082e6a86)
 
-## 명령어
-- **id -g**: 현재 사용자의 **GID(기본 그룹 ID)** 만 출력하는 명령어
+# **8.id -g**: 현재 사용자의 **GID(기본 그룹 ID)** 만 출력하는 명령어
 ```c
 #include <stdio.h>
 #include <unistd.h>
@@ -327,8 +319,7 @@ int main() {
 
 ![Image](https://github.com/user-attachments/assets/60805165-0b0f-4e58-904a-460a34704931)
 
-## 명령어
-- **hostname**: 호스트 이름 출력
+# **9.hostname**: 호스트 이름 출력
 ```c
 #include <stdio.h>
 #include <unistd.h>     // gethostname
@@ -357,8 +348,7 @@ int main() {
 
 **※ hostname이 ip주소가 뜨는이유는 AWS를 사용하면 hostname이 기본적으로 ip주소로 만들어지기 때문이다.**
 
-## 명령어
-- **hostname -I**: 명령어 관련 파일(실행파일, man 파일 등) 위치 모두 확인
+# **10.hostname -I**: 명령어 관련 파일(실행파일, man 파일 등) 위치 모두 확인
 
 ```c
 #include <stdio.h>
@@ -410,8 +400,7 @@ int main() {
 
 ![Image](https://github.com/user-attachments/assets/48f2136b-0305-4924-9568-5b4d10297ac3)
 
-## 명령어
-- **uname**: 커널 이름 출력
+#**11.uname**: 커널 이름 출력
 ```c
 #include <stdio.h>
 #include <sys/utsname.h>
@@ -436,8 +425,7 @@ int main() {
 
 ![Image](https://github.com/user-attachments/assets/8ac5f987-7d49-4a68-ba1c-f333b1f1f282)
 
-## 명령어
-- **uname -a**: 운영체제에 대한 전체 시스템 정보를 출력하는 명령어
+#**12.uname -a**: 운영체제에 대한 전체 시스템 정보를 출력하는 명령어
 
 ```c
 #include <stdio.h>
@@ -472,8 +460,7 @@ int main() {
 
 ![Image](https://github.com/user-attachments/assets/d32af6a2-3b5c-4f39-b4ab-5aeb58d905dc)
 
-## 명령어
-- **who**: 현재 실행 중인 프로세스 목록을 출력하는 명령어
+#**13.who**: 현재 실행 중인 프로세스 목록을 출력하는 명령어
 
 ```c
 #include <stdio.h>
@@ -519,8 +506,7 @@ int main() {
 
 ![Image](https://github.com/user-attachments/assets/4740de97-8322-497e-a5ff-b79338e11e31)
 
-## 명령어
-- **who -u**: 현재 실행 중인 프로세스 목록을 구체적으로 출력하는 명령어
+#**14.who -u**: 현재 실행 중인 프로세스 목록을 구체적으로 출력하는 명령어
 
 ```c
 #include <stdio.h>
@@ -593,8 +579,7 @@ int main() {
 
 ![Image](https://github.com/user-attachments/assets/092ff9a1-9b1d-4498-aa04-2ef1e73e0b86)
 
-## 명령어
-- **whoami**: 현재 사용자 출력
+#**15.whoami**: 현재 사용자 출력
 ```c
 #include <stdio.h>
 #include <unistd.h>
@@ -635,8 +620,7 @@ struct passwd {
 
 ![Image](https://github.com/user-attachments/assets/e6e82748-e627-457c-a39e-b3f24ed39bf0)
 
-## 명령어
-- **file**: 파일의 **종류(type)**를 출력하는 명령어
+#**16.file**: 파일의 **종류(type)**를 출력하는 명령어
 ```c
 #include <stdio.h>
 #include <sys/stat.h>
@@ -687,8 +671,7 @@ int main(int argc, char *argv[]) {
 
 ![Image](https://github.com/user-attachments/assets/5972b3a6-46f1-42d5-85e0-405cb818d92e)
 
-## 명령어
-- **head**: 파일의 처음 몇 줄을 출력하는 명령어 ``[ 기본값:10줄 ]``
+#**17.head**: 파일의 처음 몇 줄을 출력하는 명령어 ``[ 기본값:10줄 ]``
 
 ```c
 #include <stdio.h>
@@ -732,8 +715,7 @@ int main(int argc, char *argv[]) {
 
 ![Image](https://github.com/user-attachments/assets/6b00072c-0de1-46ca-b7de-65a9f119d6dd)
 
-## 명령어
-- **head -n**: 파일의 처음 몇 줄을 출력하는 명령어 
+#**18.head -n**: 파일의 처음 몇 줄을 출력하는 명령어 
 
 ```c
 #include <stdio.h>
@@ -775,8 +757,7 @@ int main(int argc, char *argv[]) {
 
 ![Image](https://github.com/user-attachments/assets/b17fe484-f1c4-44de-af6d-5f629ad1d558)
 
-## 명령어
-- **tail**: 파일의 마지막 몇 줄을 출력하는 명령어 ``[ 기본값: 10줄 ]``
+#**19.tail**: 파일의 마지막 몇 줄을 출력하는 명령어 ``[ 기본값: 10줄 ]``
 
 ```c
 #include <stdio.h>
@@ -837,8 +818,7 @@ int main(int argc, char *argv[]) {
 
 ![Image](https://github.com/user-attachments/assets/22668243-a17e-45ed-ad25-ea98bfa352d7)
 
-## 명령어
-- **tail -n**: 파일의 마지막 n개 줄을 출력하는 명령어 
+#**20.tail -n**: 파일의 마지막 n개 줄을 출력하는 명령어 
 
 ```c
 #include <stdio.h>
@@ -897,8 +877,7 @@ int main(int argc, char *argv[]) {
 
 ![Image](https://github.com/user-attachments/assets/10aba588-5e9a-4e2d-b39b-b9b72e15f820)
 
-## 명령어
-- **makdir**: 디렉토리 생성 명령어
+#**21.mkdir**: 디렉토리 생성 명령어
 
 ```c
 #include <stdio.h>
@@ -931,8 +910,7 @@ int main(int argc, char *argv[]) {
 
 ![Image](https://github.com/user-attachments/assets/ba940adc-f71a-4d68-af67-316888af008b)
 
-## 명령어
-- **rmdir**: 디렉토리 삭제 명령어
+#**22.rmdir**: 디렉토리 삭제 명령어
 
 ```c
 #include <stdio.h>
@@ -965,8 +943,7 @@ int main(int argc, char *argv[]) {
 
 ![Image](https://github.com/user-attachments/assets/51d0c882-8c09-49a1-8179-39fb2d338f3c)
 
-## 명령어
-- **touch**: 파일이 없으면 생성, 있으면 마지막 수정 시간 갱신 명령어
+#**23.touch**: 파일이 없으면 생성, 있으면 마지막 수정 시간 갱신 명령어
 
 ```c
 #include <stdio.h>
@@ -1012,8 +989,7 @@ int main(int argc, char *argv[]) {
 
 ![Image](https://github.com/user-attachments/assets/f5fe9a37-3288-4518-aa50-6a7cd76493a4)
 
-## 명령어
-- **cat**: 파일 내용을 출력하는 명령어
+#**24.cat**: 파일 내용을 출력하는 명령어
 
 ```c
 #include <stdio.h>
@@ -1050,8 +1026,7 @@ int main(int argc, char *argv[]) {
 
 ![Image](https://github.com/user-attachments/assets/b0c6d522-ff02-4bbf-83b1-16b8d69db1c2)
 
-## 명령어
-- **cat -n**: 텍스트 파일의 각 줄 앞에 줄 번호를 붙여 출력하는 명령어
+#**25.cat -n**: 텍스트 파일의 각 줄 앞에 줄 번호를 붙여 출력하는 명령어
 
 ```c
 #include <stdio.h>
@@ -1102,8 +1077,7 @@ int main(int argc, char *argv[]) {
 
 ![Image](https://github.com/user-attachments/assets/a9b68d70-299b-40b3-97ab-56ba843da718)
 
-## 명령어
-- **clear**: 화면 지우기
+#**26.clear**: 화면 지우기
 ```c
 #include <stdio.h>
 
@@ -1129,8 +1103,7 @@ int main() {
 
 ![Image](https://github.com/user-attachments/assets/e3f4da39-3a70-42a8-aeb7-aa658925ac0b)
 
-## 명령어
-- **date**: 현재 시간 출력
+#**27.date**: 현재 시간 출력
 ```c
 #include <stdio.h>
 #include <time.h>
@@ -1167,8 +1140,7 @@ int main() {
 
 ![Image](https://github.com/user-attachments/assets/a8fbd1b7-e720-493a-85ef-31f70db7fc8a)
 
-## 명령어
-- **dirname**: 경로에서 디렉토리 이름만 추출하는 명령어
+#**28.dirname**: 경로에서 디렉토리 이름만 추출하는 명령어
 
 ```c
 #include <stdio.h>
@@ -1198,8 +1170,7 @@ int main(int argc, char *argv[]) {
 
 ![Image](https://github.com/user-attachments/assets/828d918e-2cb0-43a3-80dd-ea761ad958b0)
 
-## 명령어
-- **sleep**: 주어진 초(seconds)만큼 프로그램 실행을 일시 중지하는 명령어
+#**29.sleep**: 주어진 초(seconds)만큼 프로그램 실행을 일시 중지하는 명령어
 
 ```c
 #include <stdio.h>
@@ -1233,8 +1204,7 @@ int main(int argc, char *argv[]) {
 
 ![Image](https://github.com/user-attachments/assets/11664e4f-fafd-47e7-ba48-30b2e22ad1e8)
 
-## 명령어
-- **exit**: 프로그램 종료 명령어
+##**30.exit**: 프로그램 종료 명령어
 ```c
 #include <stdlib.h>
 
